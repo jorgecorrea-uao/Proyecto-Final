@@ -1,0 +1,53 @@
+@use "variables" as *;
+
+@mixin auth-page {
+  min-height: 100vh;
+  @include flex-center;
+  padding: 1rem;
+}
+
+@mixin auth-card {
+  @include card;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+@mixin field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  color: $muted;
+
+  input,
+  select {
+    padding: 0.65rem 0.8rem;
+    border: 1px solid $border;
+    border-radius: $radius;
+    color: $text;
+    background: $surface;
+
+    &:focus {
+      outline: 2px solid $accent;
+      border-color: transparent;
+    }
+  }
+}
+
+@mixin primary-button {
+  padding: 0.7rem;
+  border: none;
+  border-radius: $radius;
+  background: $accent;
+  color: #fff;
+  font-weight: 600;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

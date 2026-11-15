@@ -1,0 +1,44 @@
+@use "../../styles/variables" as *;
+@use "../../styles/forms" as *;
+
+.page {
+  @include auth-page;
+}
+
+.card {
+  @include auth-card;
+}
+
+.title {
+  font-size: 1.6rem;
+  color: $primary;
+}
+
+.subtitle {
+  color: $muted;
+  margin-top: -0.6rem;
+}
+
+.field {
+  @include field;
+}
+
+.button {
+  @include primary-button;
+}
+
+.error {
+  color: $accent;
+  font-size: 0.9rem;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: $muted;
+
+  a {
+    color: $accent;
+    font-weight: 600;
+  }
+}
