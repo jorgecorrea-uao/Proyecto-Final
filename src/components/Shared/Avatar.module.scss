@@ -1,0 +1,9 @@
+@use "../../styles/variables" as *;
+
+.avatar {
+  @include flex-center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+}
