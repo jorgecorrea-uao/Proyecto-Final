@@ -1,0 +1,50 @@
+@use "../../styles/variables" as *;
+@use "../../styles/forms" as *;
+
+.card {
+  @include card;
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  resize: vertical;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid $border;
+  border-radius: $radius;
+
+  &:focus {
+    outline: 2px solid $accent;
+    border-color: transparent;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter {
+  font-size: 0.8rem;
+  color: $muted;
+}
+
+.button {
+  @include primary-button;
+  padding: 0.5rem 1.2rem;
+}
+
+.error {
+  color: $accent;
+  font-size: 0.85rem;
+}
