@@ -4,6 +4,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import UserRoutes from "./UserRoutes";
 import AdminRoutes from "./AdminRoutes";
+import Layout from "../components/Shared/Layout";
 import Index from "../pages/Index/Index";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -22,7 +23,9 @@ export default function AppRoutes() {
         path="/admin/*"
         element={
           <AdminRoute>
-            <AdminRoutes />
+            <Layout>
+              <AdminRoutes />
+            </Layout>
           </AdminRoute>
         }
       />
@@ -31,7 +34,9 @@ export default function AppRoutes() {
         path="/*"
         element={
           <PrivateRoute>
-            <UserRoutes />
+            <Layout>
+              <UserRoutes />
+            </Layout>
           </PrivateRoute>
         }
       />
