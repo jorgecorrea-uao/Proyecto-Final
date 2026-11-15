@@ -1,0 +1,40 @@
+@use "../../styles/variables" as *;
+
+.feed {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid $border;
+}
+
+.tab,
+.activeTab {
+  padding: 0.6rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: $muted;
+  font-weight: 600;
+}
+
+.activeTab {
+  color: $accent;
+  border-bottom-color: $accent;
+}
+
+.empty {
+  text-align: center;
+  color: $muted;
+  padding: 2rem 1rem;
+
+  a {
+    color: $accent;
+    font-weight: 600;
+  }
+}
