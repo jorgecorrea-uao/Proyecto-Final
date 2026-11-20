@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import { deletePost } from "../../services/posts";
+import { deletePost, toggleLike } from "../../services/posts";
 import { timeAgo } from "../../helpers/utils";
 import Avatar from "../Shared/Avatar";
 import styles from "./PostCard.module.scss";
@@ -8,11 +8,16 @@ import styles from "./PostCard.module.scss";
 export default function PostCard({ post }) {
   const { profile, isAdmin } = useAuth();
   const canDelete = profile && (post.authorId === profile.id || isAdmin);
+  const liked = profile ? post.likes.includes(profile.id) : false;
 
   const handleDelete = async () => {
     if (window.confirm("¿Eliminar esta publicación?")) {
       await deletePost(post.id);
     }
+  };
+
+  const handleLike = () => {
+    if (profile) toggleLike(post, profile.id);
   };
 
   return (
@@ -37,6 +42,12 @@ export default function PostCard({ post }) {
       </header>
 
       <p className={styles.text}>{post.text}</p>
+
+      <footer className={styles.footer}>
+        <button className={liked ? styles.liked : styles.like} onClick={handleLike}>
+          {liked ? "♥" : "♡"} {post.likesCount}
+        </button>
+      </footer>
     </article>
   );
 }

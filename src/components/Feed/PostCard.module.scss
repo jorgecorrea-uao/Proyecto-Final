@@ -49,3 +49,31 @@
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+.footer {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid $border;
+}
+
+.like,
+.liked {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid $border;
+  border-radius: 999px;
+  background: $surface;
+  color: $muted;
+  font-weight: 600;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+}
+
+.liked {
+  background: rgba($accent, 0.1);
+  border-color: $accent;
+  color: $accent;
+}
