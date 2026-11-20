@@ -1,0 +1,33 @@
+@use "../../styles/variables" as *;
+
+%button {
+  padding: 0.4rem 0.9rem;
+  border-radius: $radius;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}
+
+.primary {
+  @extend %button;
+  border: none;
+  background: $accent;
+  color: #fff;
+}
+
+.secondary {
+  @extend %button;
+  border: 1px solid $border;
+  background: $surface;
+  color: $text;
+}
+
+.friend {
+  @extend %button;
+  border: 1px solid $border;
+  color: $muted;
+}

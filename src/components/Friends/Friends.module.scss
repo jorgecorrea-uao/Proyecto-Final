@@ -11,3 +11,18 @@
   font-size: 1.6rem;
   color: $primary;
 }
+
+.section {
+  @include card;
+  padding: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.empty {
+  color: $muted;
+  padding: 0.5rem 0;
+}
