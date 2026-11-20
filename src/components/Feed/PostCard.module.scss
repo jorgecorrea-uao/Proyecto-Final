@@ -77,3 +77,19 @@
   border-color: $accent;
   color: $accent;
 }
+
+.report {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: $muted;
+  font-size: 0.8rem;
+
+  &:hover:not(:disabled) {
+    color: $accent;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}

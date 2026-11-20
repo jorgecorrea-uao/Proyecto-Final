@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { deletePost, toggleLike } from "../../services/posts";
+import { reportPost } from "../../services/reports";
 import { timeAgo } from "../../helpers/utils";
 import Avatar from "../Shared/Avatar";
 import styles from "./PostCard.module.scss";
@@ -9,6 +11,8 @@ export default function PostCard({ post }) {
   const { profile, isAdmin } = useAuth();
   const canDelete = profile && (post.authorId === profile.id || isAdmin);
   const liked = profile ? post.likes.includes(profile.id) : false;
+  const canReport = profile && post.authorId !== profile.id;
+  const [reported, setReported] = useState(false);
 
   const handleDelete = async () => {
     if (window.confirm("¿Eliminar esta publicación?")) {
@@ -18,6 +22,13 @@ export default function PostCard({ post }) {
 
   const handleLike = () => {
     if (profile) toggleLike(post, profile.id);
+  };
+
+  const handleReport = async () => {
+    const reason = window.prompt("¿Por qué quieres reportar esta publicación?");
+    if (!reason || !reason.trim()) return;
+    await reportPost(post, profile, reason);
+    setReported(true);
   };
 
   return (
@@ -47,6 +58,11 @@ export default function PostCard({ post }) {
         <button className={liked ? styles.liked : styles.like} onClick={handleLike}>
           {liked ? "♥" : "♡"} {post.likesCount}
         </button>
+        {canReport && (
+          <button className={styles.report} onClick={handleReport} disabled={reported}>
+            {reported ? "Reportado" : "Reportar"}
+          </button>
+        )}
       </footer>
     </article>
   );
