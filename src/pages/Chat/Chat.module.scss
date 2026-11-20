@@ -1,0 +1,31 @@
+@use "../../styles/variables" as *;
+
+.page {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1rem;
+  height: calc(100vh - 60px);
+  padding-bottom: 1rem;
+}
+
+.placeholder {
+  @include card;
+  @include flex-center;
+  color: $muted;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .chatOpen > aside {
+    display: none;
+  }
+
+  .page:not(.chatOpen) > .placeholder {
+    display: none;
+  }
+}
