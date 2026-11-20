@@ -1,0 +1,110 @@
+@use "../../styles/variables" as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  @include card;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.name {
+  font-size: 1.6rem;
+  color: $primary;
+}
+
+.career {
+  color: $muted;
+}
+
+.stats {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.me {
+  color: $muted;
+  font-size: 0.9rem;
+}
+
+.message {
+  padding: 0.4rem 0.9rem;
+  border-radius: $radius;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba($accent, 0.1);
+  color: $accent;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1rem;
+  align-items: start;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  @include card;
+  padding: 1rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+}
+
+.back {
+  border: 1px solid $border;
+  background: $surface;
+  border-radius: $radius;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.empty {
+  color: $muted;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
