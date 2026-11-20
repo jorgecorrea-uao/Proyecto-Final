@@ -1,0 +1,118 @@
+@use "../../styles/variables" as *;
+
+.card {
+  @include card;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.count {
+  min-width: 1.6rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: $accent;
+  color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $muted;
+}
+
+.empty {
+  color: $muted;
+}
+
+.next {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid rgba($accent, 0.4);
+  border-radius: $radius;
+  background: rgba($accent, 0.04);
+  flex-wrap: wrap;
+}
+
+.info {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: $muted;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.accept,
+.reject {
+  padding: 0.45rem 1rem;
+  border-radius: $radius;
+  font-weight: 600;
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}
+
+.accept {
+  border: none;
+  background: $accent;
+  color: #fff;
+}
+
+.reject {
+  border: 1px solid $border;
+  background: $surface;
+  color: $text;
+}
+
+.error {
+  color: $accent;
+  font-size: 0.85rem;
+}
+
+.waiting {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.position {
+  width: 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $muted;
+}
