@@ -39,7 +39,7 @@ export default function Explore() {
         />
 
         {text.trim() === "" ? (
-          <p className={styles.hint}>Escribe las primeras letras de un nombre, por ejemplo "jor" o "corr"</p>
+          <p className={styles.hint}>Escribe las primeras letras de un nombre"</p>
         ) : results.length === 0 ? (
           <p className={styles.hint}>No hay compañeros que coincidan con "{text}"</p>
         ) : (
