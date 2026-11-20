@@ -3,8 +3,11 @@ import { useAuth } from "../../hooks/useAuth";
 import { useUsers } from "../../hooks/useUsers";
 import { useFriendRequests } from "../../hooks/useFriendRequests";
 import { useUserSearch } from "../../hooks/useUserSearch";
+import { usePosts } from "../../hooks/usePosts";
+import { useTrending } from "../../hooks/useTrending";
 import UserCard from "../../components/Shared/UserCard";
 import FriendButton from "../../components/Friends/FriendButton";
+import PostCard from "../../components/Feed/PostCard";
 import Loader from "../../components/Shared/Loader";
 import styles from "./Explore.module.scss";
 
@@ -14,6 +17,9 @@ export default function Explore() {
   const { incoming, outgoing } = useFriendRequests(profile?.id);
   const search = useUserSearch(users);
   const [text, setText] = useState("");
+  const [k, setK] = useState(5);
+  const { posts } = usePosts();
+  const trending = useTrending(posts, k);
 
   if (loading || !profile) return <Loader />;
 
@@ -47,6 +53,31 @@ export default function Explore() {
               </UserCard>
             ))}
           </>
+        )}
+      </section>
+
+      <section className={styles.trending}>
+        <div className={styles.trendingHeader}>
+          <h2 className={styles.subtitle}>Tendencias de la semana</h2>
+          <label className={styles.topK}>
+            Top
+            <select value={k} onChange={(e) => setK(Number(e.target.value))}>
+              <option value={3}>3</option>
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+            </select>
+          </label>
+        </div>
+
+        {trending.length === 0 ? (
+          <p className={styles.hint}>Todavía no hay publicaciones con likes esta semana</p>
+        ) : (
+          trending.map((post, index) => (
+            <div key={post.id} className={styles.rank}>
+              <span className={styles.position}>#{index + 1}</span>
+              <PostCard post={post} />
+            </div>
+          ))
         )}
       </section>
     </main>

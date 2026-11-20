@@ -38,3 +38,52 @@
   font-size: 0.85rem;
   color: $muted;
 }
+
+.trending {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.trendingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+}
+
+.topK {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: $muted;
+
+  select {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid $border;
+    border-radius: $radius;
+    background: $surface;
+  }
+}
+
+.rank {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+
+  > article {
+    flex: 1;
+  }
+}
+
+.position {
+  min-width: 2.2rem;
+  padding-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: $accent;
+}
